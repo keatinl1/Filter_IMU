@@ -1,11 +1,11 @@
 # IMU Accelerometer Data Processing
 
 ## Table of contents
-1. [Overview](#overview)
-2. [Approach 1: Low Pass Filter](#approach-1-low-pass-filter)
-3. [Approach 2: Complimentary Filter](#approach-2-complimentary-filter)
-4. [Approach 3: Kalman Filter](#approach-3-kalman-filter)
-5. [References](#references)
+0. [Overview](#overview)
+1. [Approach 1: Low Pass Filter](#approach-1-low-pass-filter)
+2. [Approach 2: Complimentary Filter](#approach-2-complimentary-filter)
+3. [Approach 3: Kalman Filter](#approach-3-kalman-filter)
+4. [References](#references)
 
 ## Overview
 This project involves processing IMU accelerometer data obtained from an Arduino. The process includes conducting a Discrete Fourier Transform (DFT) on the raw data, choosing a cutoff frequency at 3.7 rad/s, designing a low-pass filter based on this cutoff, and implementing the filter in the discrete domain for signal processing.
