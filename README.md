@@ -66,7 +66,7 @@ $$y[k] = (\alpha) \cdot x[k] + (1 - \alpha)\cdot\frac{1}{10}\sum\limits_{i=1}^{1
 
 ### Results
 
-The results from the compliemntary filter are shown in figure 4. It removes the large peaks from the signal but there is still high frequency readings lingering in the readings.
+The results from the complimentary filter are shown in figure 4. It removes the large peaks from the signal but there is still high frequency readings lingering in the readings.
 
 <p align="center">
   <kbd>
