@@ -33,13 +33,13 @@ Figure 2: Discrete Fourier Transform of noisy raw data
 
 ### Designing filter
 
-As shown in figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). We use the equation:
+In figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). We define the LPF with the following transfer function [1]:
 
-$H(s) = \frac{\omega_{c}}{s + \omega_{c}}$
+$$H(s) = \frac{\omega_{c}}{s + \omega_{c}}$$
 
-We do a bilinear transform (also known as Tustins method) to get this filter in discrete time as a difference equation. See derivation directory if you are curious how to do this.
+You apply a bilinear transform (also known as Tustins method) to get this filter in the Z domain. Then you inverse Z transform to get it in a format we can implement in code. See ```\derivation``` if you wan to see how to do this.
 
-$y[k] = \frac{\omega_{c}T_s}{1 + \omega_{c}T_s} \cdot x[k] + \frac{1}{1 + \omega_{c}T_s} \cdot y[k-1]$
+$$y_k \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y_{k-1} + \left(\frac{T\omega_c}{2+T\omega_c}\right)\left(x_k+x_{k-1}\right),$$
 
 ### Results and conclusion
 
@@ -60,9 +60,9 @@ $~~~~~~~~~~$
 
 The same readings as the LPF were used. The intention with the complimentary filter was to combine the current acceleration readings with a moving average of the last 10 outputs.
 
-The equation is shown in equation XX:
+The equation is shown in the equation below:
 
-$y[k] = (\alpha) \cdot x[k] + (1 - \alpha)\cdot\frac{1}{10}\sum\limits_{i=1}^{10} y[k-i]$
+$$y[k] = (\alpha) \cdot x[k] + (1 - \alpha)\cdot\frac{1}{10}\sum\limits_{i=1}^{10} y[k-i]$$
 
 ### Results
 
@@ -82,3 +82,7 @@ $~~~~~~~~~~$
 ## Approach 3: Kalman Filter
 
 ### To do...
+
+## References
+
+[1] - 
