@@ -85,4 +85,4 @@ $~~~~~~~~~~$
 
 ## References
 
-[1] - 
+[1] - Kamenetsky, M. (2003). Filtered Audio Demo [Lecture notes]. Stanford University. Retrieved from https://web.stanford.edu/~boyd/ee102/conv_demo.pdf
