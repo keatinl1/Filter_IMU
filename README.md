@@ -3,11 +3,7 @@
 This project involves processing IMU accelerometer data obtained from an Arduino. The process includes conducting a Discrete Fourier Transform (DFT) on the raw data, choosing a cutoff frequency at 3.7 rad/s, designing a low-pass filter based on this cutoff, and implementing the filter in the discrete domain for signal processing.
 Overview. My intention is to implement a simple low pass filter (LPF), a complimentary filter and a more advanced Kalman Filter.
 
-## Low Pass Filter
-
-### Initial readings
-
-Shown in figure 1 is the noisy raw data.
+Shown below in figure 1 is the noisy raw data which we will attempt to filter.
 
 <p align="center">
   <kbd>
@@ -17,6 +13,10 @@ Shown in figure 1 is the noisy raw data.
 <p align="center">
 Figure 1: Noisy raw data obtained from the accelerometer.
 </p>
+
+$~~~~~~~~~~$
+
+## Approach 1: Low Pass Filter
 
 ### Fourier analysis
 
@@ -37,13 +37,13 @@ As shown in figure 2 the red lines show the desired cutoff frequency ( $\omega_{
 
 $H(s) = \frac{\omega_{c}}{s + \omega_{c}}$
 
-Then to get this in discrete time the output is
+We do a bilinear transform (also known as Tustins method) to get this filter in discrete time as a difference equation
 
 $y[k] = \frac{\omega_{c}T_s}{1 + \omega_{c}T_s} \cdot x[k] + \frac{1}{1 + \omega_{c}T_s} \cdot y[k-1]$
 
 ### Results and conclusion
 
-The resulting plot is shown in figure 3.
+The resulting plot is shown in figure 3. Most of the high frequency noise is removed or attenuated.
 
 <p align="center">
   <kbd>
@@ -54,9 +54,9 @@ The resulting plot is shown in figure 3.
 Figure 3: Data after low pass filter is applied
 </p>
 
-Much of the high frequency noise is removed or attenuated.
+$~~~~~~~~~~$
 
-## Complimentary Filter
+## Approach 2: Complimentary Filter
 
 The same readings as the LPF were used. The intention with the complimentary filter was to combine the current acceleration readings with a moving average of the last 10 outputs.
 
@@ -77,6 +77,8 @@ The results from the compliemntary filter are shown in figure 4. It removes the 
 Figure 4: Data after complimentary filter is applied
 </p>
 
-## Kalman Filter
+$~~~~~~~~~~$
+
+## Approach 3: Kalman Filter
 
 ### To do...
