@@ -37,7 +37,7 @@ As shown in figure 2 the red lines show the desired cutoff frequency ( $\omega_{
 
 $H(s) = \frac{\omega_{c}}{s + \omega_{c}}$
 
-Then to get this in discrete time the output is
+We do a bilinear transform (also known as Tustins method) to get this filter in discrete time as a difference equation
 
 $y[k] = \frac{\omega_{c}T_s}{1 + \omega_{c}T_s} \cdot x[k] + \frac{1}{1 + \omega_{c}T_s} \cdot y[k-1]$
 
