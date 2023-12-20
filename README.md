@@ -60,7 +60,7 @@ $~~~~~~~~~~$
 
 The same readings as the LPF were used. The intention with the complimentary filter was to combine the current acceleration readings with a moving average of the last 10 outputs.
 
-The equation is shown in the equation below:
+The equation is shown here:
 
 $$y[k] = (\alpha) \cdot x[k] + (1 - \alpha)\cdot\frac{1}{10}\sum\limits_{i=1}^{10} y[k-i]$$
 
