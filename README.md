@@ -41,7 +41,7 @@ You apply a bilinear transform (also known as Tustins method) to get this filter
 
 $$y_k \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y_{k-1} + \left(\frac{T\omega_c}{2+T\omega_c}\right)\left(x_k+x_{k-1}\right),$$
 
-### Results and conclusion
+### Results
 
 The resulting plot is shown in figure 3. Most of the high frequency noise is removed or attenuated.
 
