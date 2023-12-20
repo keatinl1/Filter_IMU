@@ -3,7 +3,9 @@
 This project involves processing IMU accelerometer data obtained from an Arduino. The process includes conducting a Discrete Fourier Transform (DFT) on the raw data, choosing a cutoff frequency at 3.7 rad/s, designing a low-pass filter based on this cutoff, and implementing the filter in the discrete domain for signal processing.
 Overview. My intention is to implement a simple low pass filter (LPF), a complimentary filter and a more advanced Kalman Filter.
 
-## Low Pass Filter
+$~~~~~~~~~~$
+
+## Approach 1: Low Pass Filter
 
 ### Initial readings
 
@@ -56,7 +58,9 @@ Figure 3: Data after low pass filter is applied
 
 Much of the high frequency noise is removed or attenuated.
 
-## Complimentary Filter
+$~~~~~~~~~~$
+
+## Approach 2: Complimentary Filter
 
 The same readings as the LPF were used. The intention with the complimentary filter was to combine the current acceleration readings with a moving average of the last 10 outputs.
 
@@ -77,6 +81,8 @@ The results from the compliemntary filter are shown in figure 4. It removes the 
 Figure 4: Data after complimentary filter is applied
 </p>
 
-## Kalman Filter
+$~~~~~~~~~~$
+
+## Approach 3: Kalman Filter
 
 ### To do...
