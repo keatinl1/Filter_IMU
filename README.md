@@ -33,7 +33,7 @@ Figure 2: Discrete Fourier Transform of noisy raw data
 
 ### Designing filterAfter_Filtering.png
 
-As shown in figure 2 the red lines show the desired cutoff frequency( $\omega_{c}$). We use the equation:
+As shown in figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). We use the equation:
 
 $H(s) = \frac{\omega_{c}}{s + \omega_{c}}$
 
