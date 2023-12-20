@@ -64,7 +64,7 @@ The equation is shown in equation XX:
 
 $y[k] = (\alpha) x[k] + (1 - \alpha)\frac{\Sigma (y[k-1],...,y[k-11])}{10}$
 
-# Results
+### Results
 
 The results from the compliemntary filter are shown in figure 4. It removes the large peaks from the signal but there is still high frequency readings lingering in the readings.
 
