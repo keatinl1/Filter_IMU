@@ -62,7 +62,7 @@ The same readings as the LPF were used. The intention with the complimentary fil
 
 The equation is shown in equation XX:
 
-$y[k] = (\alpha) x[k] + (1 - \alpha)\frac{\Sigma (y[k-1],...,y[k-11])}{10}$
+$y[k] = (\alpha) x[k] + (1 - \alpha)\sum\limits_{i=1}^{11}\frac{y[k-i]}{10}$
 
 ### Results
 
