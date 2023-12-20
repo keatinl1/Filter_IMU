@@ -43,7 +43,7 @@ $y[k] = \frac{\omega_{c}T_s}{1 + \omega_{c}T_s} \cdot x[k] + \frac{1}{1 + \omega
 
 ### Results and conclusion
 
-The resulting plot is shown in figure 3.
+The resulting plot is shown in figure 3. Most of the high frequency noise is removed or attenuated.
 
 <p align="center">
   <kbd>
@@ -53,8 +53,6 @@ The resulting plot is shown in figure 3.
 <p align="center">
 Figure 3: Data after low pass filter is applied
 </p>
-
-Much of the high frequency noise is removed or attenuated.
 
 $~~~~~~~~~~$
 
