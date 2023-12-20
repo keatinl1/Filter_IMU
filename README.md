@@ -31,7 +31,7 @@ After recording the data the discrete fourier transform was found using the ```n
 Figure 2: Discrete Fourier Transform of noisy raw data
 </p>
 
-### Designing filterAfter_Filtering.png
+### Designing filter
 
 As shown in figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). We use the equation:
 
@@ -39,7 +39,7 @@ $H(s) = \frac{\omega_{c}}{s + \omega_{c}}$
 
 Then to get this in discrete time the output is
 
-$y[k] = \frac{\omega_{c}T_s}{1 + \omega_{c}T_s}u[k] + \frac{1}{1 + \omega_{c}T_s}y[k-1]$
+$y[k] = \frac{\omega_{c}T_s}{1 + \omega_{c}T_s} \cdot x[k] + \frac{1}{1 + \omega_{c}T_s} \cdot y[k-1]$
 
 ### Results and conclusion
 
@@ -62,7 +62,7 @@ The same readings as the LPF were used. The intention with the complimentary fil
 
 The equation is shown in equation XX:
 
-$y[k] = (\alpha) x[k] + (1 - \alpha)\sum\limits_{i=1}^{11}\frac{y[k-i]}{10}$
+$y[k] = (\alpha) \cdot x[k] + (1 - \alpha)\cdot\frac{1}{10}\sum\limits_{i=1}^{10} y[k-i]$
 
 ### Results
 
