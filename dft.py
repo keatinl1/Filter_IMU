@@ -35,21 +35,22 @@ plt.figure(figsize=(8, 18))
 
 plt.subplot(3, 1, 1)
 plt.plot(freq, np.abs(x_fft), color='blue', linewidth=1.0)
+plt.axvline(x=3.7, color='red', linestyle='--')  # Adding vertical line at +4 rad/s
+plt.axvline(x=-3.7, color='red', linestyle='--')  # Adding vertical line at -4 rad/s
 plt.title('Frequency Domain Data (DFT) - X, Y, Z')
-# plt.xlabel('Frequency (Hz)')
 plt.ylabel('Amplitude')
 
 plt.subplot(3, 1, 2)
 plt.plot(freq, np.abs(y_fft), color='orange', linewidth=1.0)
-# plt.title('Frequency Domain Data (DFT) - Y')
-# plt.xlabel('Frequency (Hz)')
+plt.axvline(x=3.7, color='red', linestyle='--')  # Adding vertical line at +4 rad/s
+plt.axvline(x=-3.7, color='red', linestyle='--')  # Adding vertical line at -4 rad/s
 plt.ylabel('Amplitude')
 
 plt.subplot(3, 1, 3)
 plt.plot(freq, np.abs(z_fft), color='green', linewidth=1.0)
-# plt.title('Frequency Domain Data (DFT) - Z')
+plt.axvline(x=3.7, color='red', linestyle='--')  # Adding vertical line at +4 rad/s
+plt.axvline(x=-3.7, color='red', linestyle='--')  # Adding vertical line at -4 rad/s
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Amplitude')
 
-# plt.tight_layout()
 plt.show()

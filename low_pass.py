@@ -19,7 +19,7 @@ x_out.append(x_data[0])
 y_out.append(y_data[0])
 z_out.append(z_data[0])
 
-w_c = 4.0
+w_c = 3.7#4.0
 T_s = 0.018
 
 alpha = (w_c * T_s) / (1 + w_c * T_s)
@@ -32,14 +32,14 @@ for i in range(1, len(x_data)):
 
 # Plotting
 plt.figure(figsize=(8, 6))
-plt.plot(x_data, label='Original X')
-# plt.plot(x_out, label='Filtered X')
-plt.plot(y_data, label='Original Y')
-# plt.plot(y_out, label='Filtered Y')
-plt.plot(z_data, label='Original Z')
-# plt.plot(z_out, label='Filtered Z')
+# plt.plot(x_data, label='Original X')
+plt.plot(x_out, label='Filtered X')
+# plt.plot(y_data, label='Original Y')
+plt.plot(y_out, label='Filtered Y')
+# plt.plot(z_data, label='Original Z')
+plt.plot(z_out, label='Filtered Z')
 plt.legend()
 plt.xlabel('Sample')
 plt.ylabel('Value')
-plt.title('Pre-filtering Data')
+plt.title('Filtered Data')
 plt.show()
