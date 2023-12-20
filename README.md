@@ -15,7 +15,7 @@ Shown in figure 1 is the noisy raw data.
   </kbd>
 </p>
 <p align="center">
-Figure 1
+Figure 1: Noisy raw data obtained from the accelerometer.
 </p>
 
 ### Fourier analysis
@@ -28,7 +28,7 @@ After recording the data the discrete fourier transform was found using the ```n
   </kbd>
 </p>
 <p align="center">
-Figure 2
+Figure 2: Discrete Fourier Transform of noisy raw data
 </p>
 
 ### Designing filterAfter_Filtering.png
@@ -51,7 +51,7 @@ The resulting plot is shown in figure 3.
   </kbd>
 </p>
 <p align="center">
-Figure 3
+Figure 3: Data after low pass filter is applied
 </p>
 
 Much of the high frequency noise is removed or attenuated.
