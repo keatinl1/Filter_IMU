@@ -47,7 +47,7 @@ $$H(s) = \frac{\omega_{c}}{s + \omega_{c}}$$
 
 You apply a bilinear transform (also known as Tustins method) to get this filter in the Z domain. Then you inverse Z transform to get it in a format we can implement in code. See ```\derivation``` if you wan to see how to do this.
 
-$$y_k \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y_{k-1} + \left(\frac{T\omega_c}{2+T\omega_c}\right)\left(x_k+x_{k-1}\right),$$
+$$y[k] \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y[k-1] + \left(\frac{T\omega_c}{2+T\omega_c}\right)\left(x[k]+x[k-1]\right)$$
 
 ### Results
 
