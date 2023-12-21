@@ -8,10 +8,9 @@
 4. [References](#references)
 
 ## Overview
-This project involves processing IMU accelerometer data obtained from an Arduino. The process includes conducting a Discrete Fourier Transform (DFT) on the raw data, choosing a cutoff frequency at 3.7 rad/s, designing a low-pass filter based on this cutoff, and implementing the filter in the discrete domain for signal processing.
-Overview. My intention is to implement a simple low pass filter (LPF), a complimentary filter and a more advanced Kalman Filter.
+This project involved the processing of accelerometer data obtained from an Arduino IMU. A low pass filter, a complimentary filter and a Kalman filter were the approaches used.
 
-Shown below in figure 1 is the noisy raw data which we will attempt to filter.
+Figure 1 shows the noisy raw data that was to be filtered.
 
 <p align="center">
   <kbd>
@@ -28,7 +27,9 @@ $~~~~~~~~~~$
 
 ### Fourier analysis
 
-After recording the data the discrete fourier transform was found using the ```numpy.fft()``` function. It is shown here in figure 2.
+The process for implementing the LPF was as follows: a discrete Fourier transform of the raw data (using ```numpy.fft()```), a cutoff frequency was chosen, the filter based on this cutoff was then transformed to the Z domain, then inverse Z transformed.
+
+Figure 2 shows the DFT.
 
 <p align="center">
   <kbd>
@@ -45,7 +46,7 @@ In figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). We 
 
 $$H(s) = \frac{\omega_{c}}{s + \omega_{c}}$$
 
-You apply a bilinear transform (also known as Tustins method) to get this filter in the Z domain. Then you inverse Z transform to get it in a format we can implement in code. See ```\derivation``` if you wan to see how to do this.
+You apply a bilinear transform (also known as Tustins method) to get this filter in the Z domain. Then you inverse Z transform to get it in a format we can implement in code. See ```\derivation``` if you want to see how to do this.
 
 $$y[k] \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y[k-1] + \left(\frac{T\omega_c}{2+T\omega_c}\right)\left(x[k]+x[k-1]\right)$$
 
@@ -74,7 +75,7 @@ $$y[k] = (\alpha) \cdot x[k] + (1 - \alpha)\cdot\frac{1}{10}\sum\limits_{i=1}^{1
 
 ### Results
 
-The results from the complimentary filter are shown in figure 4. It removes the large peaks from the signal but there is still high frequency readings lingering in the readings.
+The results from the complimentary filter are shown in figure 4. It removed the large peaks from the signal but there were still high frequency readings lingering.
 
 <p align="center">
   <kbd>
