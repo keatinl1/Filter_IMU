@@ -42,11 +42,11 @@ Figure 2: Discrete Fourier Transform of noisy raw data
 
 ### Designing filter
 
-In figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). We define the LPF with the following transfer function [1]:
+In figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). The LPF was defined with the following transfer function [1]:
 
 $$H(s) = \frac{\omega_{c}}{s + \omega_{c}}$$
 
-You apply a bilinear transform (also known as Tustins method) to get this filter in the Z domain. Then you inverse Z transform to get it in a format we can implement in code. See ```\derivation``` if you want to see how to do this.
+A bilinear transform (also known as Tustins method) was performed to get this filter in the Z domain. Then an inverse Z transform to get it in a format which could be implemented in code. See ```\derivation``` to see how to do this.
 
 $$y[k] \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y[k-1] + \left(\frac{T\omega_c}{2+T\omega_c}\right)\left(x[k]+x[k-1]\right)$$
 
