@@ -65,17 +65,17 @@ Figure 3: Data after low pass filter is applied
 
 $~~~~~~~~~~$
 
-## Approach 2: Complimentary Filter
+## Approach 2: Moving Average Filter
 
 The same readings as the LPF were used. The intention with the complimentary filter was to combine the current acceleration readings with a moving average of the last 10 outputs.
 
 The equation is shown here:
 
-$$y[k] = (\alpha) \cdot x[k] + (1 - \alpha)\cdot\frac{1}{10}\sum\limits_{i=1}^{10} y[k-i]$$
+$$y[k] = \frac{1}{10}\sum\limits_{i=0}^{9} x[k-i]$$
 
 ### Results
 
-The results from the complimentary filter are shown in figure 4. It removed the large peaks from the signal but there were still high frequency readings lingering.
+The results from the filter are shown in figure 4. It removed the large peaks from the signal but there were still high frequency readings.
 
 <p align="center">
   <kbd>
