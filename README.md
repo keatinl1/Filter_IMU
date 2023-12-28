@@ -33,7 +33,7 @@ $$y[k] = \frac{1}{10}\sum\limits_{i=0}^{9} x[k-i]$$
 
 ### Results
 
-The results from the filter are shown in figure 4. It reduced the magnitude of the large peaks from the signal but they were still present, there were also small high frequency readings still present.
+The results from the filter are shown in figure 2. It reduced the magnitude of the large peaks from the signal but they were still present, there were also small high frequency readings still present.
 
 <p align="center">
   <kbd>
@@ -41,7 +41,7 @@ The results from the filter are shown in figure 4. It reduced the magnitude of t
   </kbd>
 </p>
 <p align="center">
-Figure 4: Data after complimentary filter is applied
+Figure 2: Data after complimentary filter is applied
 </p>
 
 
@@ -53,7 +53,7 @@ $~~~~~~~~~~$
 
 The process for implementing the LPF was as follows: a discrete Fourier transform of the raw data (using ```numpy.fft()```), a cutoff frequency was chosen, the filter based on this cutoff was then transformed to the Z domain, then inverse Z transformed.
 
-Figure 2 shows the DFT.
+Figure 3 shows the DFT.
 
 <p align="center">
   <kbd>
@@ -61,12 +61,12 @@ Figure 2 shows the DFT.
   </kbd>
 </p>
 <p align="center">
-Figure 2: Discrete Fourier Transform of noisy raw data
+Figure 3: Discrete Fourier Transform of noisy raw data
 </p>
 
 ### Designing filter
 
-In figure 2 the red lines show the desired cutoff frequency ( $\omega_{c}$). The LPF was defined with the following transfer function [1]:
+In figure 3 the red lines show the desired cutoff frequency ( $\omega_{c}$). The LPF was defined with the following transfer function [1]:
 
 $$H(s) = \frac{\omega_{c}}{s + \omega_{c}}$$
 
@@ -76,7 +76,7 @@ $$y[k] \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y[k-1] + \left(\frac{
 
 ### Results
 
-The resulting plot is shown in figure 3. Most of the high frequency noise is removed or attenuated.
+The resulting plot is shown in figure 4. Most of the high frequency noise is removed or attenuated.
 
 <p align="center">
   <kbd>
@@ -84,14 +84,14 @@ The resulting plot is shown in figure 3. Most of the high frequency noise is rem
   </kbd>
 </p>
 <p align="center">
-Figure 3: Data after low pass filter is applied
+Figure 4: Data after low pass filter is applied
 </p>
 
 $~~~~~~~~~~$
 
 ## Approach 3: Kalman Filter
 
-### To do...
+To do...
 
 ## References
 
