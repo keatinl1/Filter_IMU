@@ -86,6 +86,7 @@ The resulting plot is shown in figure 3. Most of the high frequency noise is rem
 <p align="center">
 Figure 3: Data after low pass filter is applied
 </p>
+
 $~~~~~~~~~~$
 
 ## Approach 3: Kalman Filter
