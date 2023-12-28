@@ -33,7 +33,7 @@ $$y[k] = \frac{1}{10}\sum\limits_{i=0}^{9} x[k-i]$$
 
 ### Results
 
-The results from the filter are shown in figure 4. It removed the large peaks from the signal but there were still high frequency readings.
+The results from the filter are shown in figure 4. It reduced the magnitude of the large peaks from the signal but they were still present, there were also small high frequency readings still present.
 
 <p align="center">
   <kbd>
