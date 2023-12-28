@@ -2,8 +2,8 @@
 
 ## Table of contents
 0. [Overview](#overview)
-1. [Approach 1: Low Pass Filter](#approach-1-low-pass-filter)
-2. [Approach 2: Complimentary Filter](#approach-2-complimentary-filter)
+1. [Approach 1: Moving Average Filter](#approach-1-moving-average-filter)
+2. [Approach 2: Low Pass Filter](#approach-2-low-pass-filter)
 3. [Approach 3: Kalman Filter](#approach-3-kalman-filter)
 4. [References](#references)
 
@@ -23,7 +23,31 @@ Figure 1: Noisy raw data obtained from the accelerometer.
 
 $~~~~~~~~~~$
 
-## Approach 1: Low Pass Filter
+## Approach 1: Moving Average Filter
+
+The intention of the moving average filter was to combine the current acceleration reading with the previous 10 and take the average of them.
+
+The equation is shown here:
+
+$$y[k] = \frac{1}{10}\sum\limits_{i=0}^{9} x[k-i]$$
+
+### Results
+
+The results from the filter are shown in figure 4. It removed the large peaks from the signal but there were still high frequency readings.
+
+<p align="center">
+  <kbd>
+    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/moving_avg.png">
+  </kbd>
+</p>
+<p align="center">
+Figure 4: Data after complimentary filter is applied
+</p>
+
+
+$~~~~~~~~~~$
+
+## Approach 2: Low Pass Filter
 
 ### Fourier analysis
 
@@ -62,30 +86,6 @@ The resulting plot is shown in figure 3. Most of the high frequency noise is rem
 <p align="center">
 Figure 3: Data after low pass filter is applied
 </p>
-
-$~~~~~~~~~~$
-
-## Approach 2: Moving Average Filter
-
-The same readings as the LPF were used. The intention with the complimentary filter was to combine the current acceleration readings with a moving average of the last 10 outputs.
-
-The equation is shown here:
-
-$$y[k] = \frac{1}{10}\sum\limits_{i=0}^{9} x[k-i]$$
-
-### Results
-
-The results from the filter are shown in figure 4. It removed the large peaks from the signal but there were still high frequency readings.
-
-<p align="center">
-  <kbd>
-    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/complimentary_moving_avg.png">
-  </kbd>
-</p>
-<p align="center">
-Figure 4: Data after complimentary filter is applied
-</p>
-
 $~~~~~~~~~~$
 
 ## Approach 3: Kalman Filter
