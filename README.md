@@ -8,7 +8,7 @@
 4. [References](#references)
 
 ## Overview
-This project involved the processing of accelerometer data obtained from an Arduino IMU. A low pass filter, a complimentary filter and a Kalman filter were the approaches used.
+This project involved the processing of accelerometer data obtained from an Arduino IMU. A a moving average filter, low pass filter and a Kalman filter were the approaches used.
 
 Figure 1 shows the noisy raw data that was to be filtered.
 
@@ -25,7 +25,7 @@ $~~~~~~~~~~$
 
 ## Approach 1: Moving Average Filter
 
-The intention of the moving average filter was to combine the current acceleration reading with the previous 10 and take the average of them.
+The intention of the moving average filter was to combine the current acceleration reading with the previous 9 and take the average of them.
 
 The equation is shown here:
 
