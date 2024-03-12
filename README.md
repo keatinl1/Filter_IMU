@@ -4,8 +4,9 @@
 0. [Overview](#overview)
 1. [Approach 1: Moving Average Filter](#approach-1-moving-average-filter)
 2. [Approach 2: Low Pass Filter](#approach-2-low-pass-filter)
-3. [Approach 3: Kalman Filter](#approach-3-kalman-filter)
-4. [References](#references)
+3. [Approach 3: Chebyshev Filter](#approach-3-chebyshev-filter)
+4. [Approach 4: Kalman Filter](#approach-4-kalman-filter)
+5. [References](#references)
 
 ## Overview
 This project involved the processing of accelerometer data obtained from an Arduino IMU. A a moving average filter, low pass filter and a Kalman filter were the approaches used.
@@ -70,7 +71,7 @@ In figure 3 the red lines show the desired cutoff frequency ( $\omega_{c}$). The
 
 $$H(s) = \frac{\omega_{c}}{s + \omega_{c}}$$
 
-A bilinear transform (also known as Tustins method) was performed to get this filter in the Z domain. Then an inverse Z transform to get it in a format which could be implemented in code. See ```\derivation``` to see how to do this.
+It is a single pole also known as a first order low pass filter. A bilinear transform (also known as Tustins method) was performed to get this filter in the Z domain. Then an inverse Z transform to get it in a format which could be implemented in code. See ```\derivation``` to see how to do this.
 
 $$y[k] \approx \left(\frac{2-T\omega_c}{2+T\omega_c}\right)y[k-1] + \left(\frac{T\omega_c}{2+T\omega_c}\right)\left(x[k]+x[k-1]\right)$$
 
@@ -89,7 +90,26 @@ Figure 4: Data after low pass filter is applied
 
 $~~~~~~~~~~$
 
-## Approach 3: Kalman Filter
+## Approach 3: Chebyshev Filter
+
+Chebyshev filters are also designed using frequency analysis but they have faster rolloff than a standard low pass filter (at the expense of ripples in the passband (in the type 1 version)).
+
+When the ripple percentage is set to zero, this is known as a Butterworth filter, but in this exampl a ripple percentage of 0.5% will be set as the ripple is negligable and the rolloff is even quicker than the Butterworth version.
+
+Figure 5 shows what is meant by ripple, the solid line shows the 0% ripple Butterworth filter:
+
+<p align="center">
+  <kbd>
+    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/ripples.png">
+  </kbd>
+</p>
+<p align="center">
+Figure 5: Comparison of ripple percentages
+</p>
+
+$~~~~~~~~~~$
+
+## Approach 4: Kalman Filter
 
 To do...
 
