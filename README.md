@@ -100,7 +100,7 @@ Figure 5 shows what is meant by ripple, the solid line shows the 0% ripple Butte
 
 <p align="center">
   <kbd>
-    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/ripples.png">
+    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/ripple.png">
   </kbd>
 </p>
 <p align="center">
