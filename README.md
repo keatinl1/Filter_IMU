@@ -108,19 +108,6 @@ Figure 5: Comparison of ripple percentages
 </p>
 
 
-The transfer function is shown below
-
-$$H(s) = \frac{1}{1 + \epsilon^2(T_{n}(\frac{s}{\omega_{c}}))^2}$$
-
-Where $T_n(x)$ is a Chebyshev polynomial as is calculated as so,
-
-$$
-\begin{aligned}
-&T_0(x)= 1 \\
-&T_1(x)= x \\
-&T_{n+1}(x)= 2x \cdot T_n(x) - T_{n-1}(x)
-\end{aligned}
-$$
 
 For a fair comparison to the first order filter above, a first order Chebyshev polynomial will be chosen so $T_{n}(\frac{s}{\omega_{c}}) = \frac{s}{\omega_{c}}$.
 $~~~~~~~~~~$
