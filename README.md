@@ -107,9 +107,6 @@ Figure 5 shows what is meant by ripple, the solid line shows the 0% ripple Butte
 Figure 5: Comparison of ripple percentages
 </p>
 
-
-
-For a fair comparison to the first order filter above, a first order Chebyshev polynomial will be chosen so $T_{n}(\frac{s}{\omega_{c}}) = \frac{s}{\omega_{c}}$.
 $~~~~~~~~~~$
 
 ## Approach 4: Kalman Filter
