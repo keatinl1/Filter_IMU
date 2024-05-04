@@ -5,11 +5,10 @@
 1. [Approach 1: Moving Average Filter](#approach-1-moving-average-filter)
 2. [Approach 2: Low Pass Filter](#approach-2-low-pass-filter)
 3. [Approach 3: Chebyshev Filter](#approach-3-chebyshev-filter)
-4. [Approach 4: Kalman Filter](#approach-4-kalman-filter)
-5. [References](#references)
+4. [References](#references)
 
 ## Overview
-This project involved the processing of accelerometer data obtained from an Arduino IMU. A a moving average filter, low pass filter and a Kalman filter were the approaches used.
+This project involved the processing of accelerometer data obtained from an Arduino IMU. A a moving average filter, low pass filter and a Chebyshev filter were the approaches used.
 
 Figure 1 shows the noisy raw data that was to be filtered.
 
@@ -108,10 +107,6 @@ Figure 5: Comparison of ripple percentages
 </p>
 
 $~~~~~~~~~~$
-
-## Approach 4: Kalman Filter
-
-To do...
 
 ## References
 
