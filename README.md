@@ -41,7 +41,7 @@ The results from the filter are shown in figure 2. It reduced the magnitude of t
   </kbd>
 </p>
 <p align="center">
-Figure 2: Data after complimentary filter is applied
+Figure 2: Data after moving average Filter is applied
 </p>
 
 
