@@ -112,10 +112,10 @@ A standard linear Kalman filter was implemented with the following steps:
 Where $Q$ is process noise covariance,
 
 \
-$x_{k+1}^- = A x_k$
+$x_{k}^- = A x_{k-1}$
 
 \
-$P_{k+1}^- = A P_k A^T + Q$
+$P_{k}^- = A P_{k-1} A^T + Q$
 
 
 **Update Step:**\
