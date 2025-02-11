@@ -69,7 +69,7 @@ for k in range(len(x_data)):
     y_out.append(a_y)
     z_out.append(a_z)
 
-    print_P = sum(sum(Px))
+    print_P = np.trace(Px)
     p_out.append(print_P)
 
 
@@ -78,16 +78,17 @@ plt.figure(figsize=(8, 6))
 plt.plot(x_out, label='Filtered X')
 plt.plot(y_out, label='Filtered Y')
 plt.plot(z_out, label='Filtered Z')
+plt.legend()
+plt.xlabel('Sample')
+plt.ylabel('Value')
+plt.title('Filtered Data')
 
 # plt.plot(x_data, label='Original X')
 # plt.plot(y_data, label='Original Y')
 # plt.plot(z_data, label='Original Z')
 
 plt.figure(figsize=(8, 6))
-plt.plot(p_out, label='P out')
+plt.plot(p_out)
+plt.title('Trace of error covariance matrix ($P$)')
 
-plt.legend()
-plt.xlabel('Sample')
-plt.ylabel('Value')
-plt.title('Filtered Data')
 plt.show()
