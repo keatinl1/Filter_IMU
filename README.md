@@ -4,11 +4,11 @@
 0. [Overview](#overview)
 1. [Approach 1: Moving Average Filter](#approach-1-moving-average-filter)
 2. [Approach 2: Low Pass Filter](#approach-2-low-pass-filter)
-3. [Approach 3: Chebyshev Filter](#approach-3-chebyshev-filter)
+3. [Approach 3: Kalman Filter](#approach-3-kalman-filter)
 4. [References](#references)
 
 ## Overview
-This project involved the processing of accelerometer data obtained from an Arduino IMU. A a moving average filter, low pass filter and a Chebyshev filter were the approaches used.
+This project involved the processing of accelerometer data obtained from an Arduino IMU. A a moving average filter, low pass filter and a Kalman filter were the approaches used.
 
 Figure 1 shows the noisy raw data that was to be filtered.
 
@@ -89,25 +89,79 @@ Figure 4: Data after low pass filter is applied
 
 $~~~~~~~~~~$
 
-## Approach 3: Chebyshev Filter
+## Approach 3: Kalman Filter
 
-Chebyshev filters are also designed using frequency analysis but they have faster rolloff than a standard low pass filter (at the expense of ripples in the passband (in the type 1 version)).
+A Kalman filter was implemented to estimate both acceleration and jerk, allowing for smoother and more robust state estimation.
 
-When the ripple percentage is set to zero, this is known as a Butterworth filter, but in this exampl a ripple percentage of 0.5% will be set as the ripple is negligable and the rolloff is even quicker than the Butterworth version.
+The system model used was:
 
-Figure 5 shows what is meant by ripple, the solid line shows the 0% ripple Butterworth filter:
+$${\left\lbrack \matrix{a_{k+1} \cr \dot{a}_{k+1}}\right\rbrack  = \left\lbrack \matrix{1 & \Delta T \cr 0 & 1}\right\rbrack \begin{bmatrix} a_k \cr \dot{a}_k \end{bmatrix} }$$
+
+The measurement model was:
+
+$$y_k = \begin{bmatrix}1 & 0\end{bmatrix} \begin{bmatrix} a_k \cr \dot{a}_k \end{bmatrix}$$
+
+
+Where $a_k$ is acceleration, $\dot{a}_k$ is jerk, and $y_k$ is the measured acceleration.
+
+### Implementation
+
+A standard linear Kalman filter was implemented with the following steps:
+
+**Prediction Step:**\
+Where $Q$ is process noise covariance,
+
+\
+$x_{k+1}^- = A x_k$
+
+\
+$P_{k+1}^- = A P_k A^T + Q$
+
+
+**Update Step:**\
+Where $R$ is measurement noise covariance,
+
+\
+$K_k = \frac{P_k^- C^T}{C P_k^- C^T + R}$
+
+\
+$x_k = x_k^- + K_k (y_k - C x_k^-)$
+
+\
+$P_k = (I - K_k C) P_k^-$
+
+
+### Results
+
+The Kalman filter effectively smoothed the acceleration readings and provided an estimate of jerk. Figure 5 shows the results, demonstrating noise attenuation.
 
 <p align="center">
   <kbd>
-    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/ripple.png">
+    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/kalman.png">
   </kbd>
 </p>
 <p align="center">
-Figure 5: Comparison of ripple percentages
+Figure 5: Data after Kalman filter is applied
 </p>
+
+The evolution of the trace of the error covariance matrix was also plotted it is shown in figure 6. The trace reduced from the initial guess until stabilising at the value of $P_\infty$ which is the solution of the Ricatti equation
+
+<p align="center">
+  <kbd>
+    <img src="https://raw.githubusercontent.com/keatinl1/Filter_IMU/main/figs/kalman_trace.png">
+  </kbd>
+</p>
+<p align="center">
+Figure 6: Trace of error covariance matrix
+</p>
+
 
 $~~~~~~~~~~$
 
 ## References
 
 [1] - Kamenetsky, M. (2003). Filtered Audio Demo [Lecture notes]. Stanford University. Retrieved from https://web.stanford.edu/~boyd/ee102/conv_demo.pdf
+
+
+
+
